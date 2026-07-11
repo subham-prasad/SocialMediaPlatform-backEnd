@@ -7,6 +7,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINAY_API_SECRET,
 });
 
+//study cloudinary response log
+
 const uploadOnCloudinary = async (localFilePath) => {
   try {
     if (!localFilePath) return null;
@@ -17,7 +19,8 @@ const uploadOnCloudinary = async (localFilePath) => {
 
     //file upload is successfull
 
-    console.log("The file is uploaded on cloudilya", response.url);
+    // console.log("The file is uploaded on cloudilya", response.url);
+    fs.unlinkSync(localFilePath); //remove the locally saved data then only move forward for anything
 
     return response;
   } catch (error) {

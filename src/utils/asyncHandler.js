@@ -1,11 +1,10 @@
 const asyncHandler = (requestHandler) => {
+  return (req, res, next) => {
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
+  };
 
-    (req,res,next) => {
-        Promise.resolve(requestHandler(req,res,next)).catch((err) =>next(err))
-    }
-
-return asyncHandler
-}
+  // return asyncHandler
+};
 
 export { asyncHandler };
 
@@ -19,6 +18,6 @@ export { asyncHandler };
 //             success: false,
 //             message: error.message
 //         })
-        
+
 //     }
 // }

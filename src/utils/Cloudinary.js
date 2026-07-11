@@ -21,7 +21,7 @@ const uploadOnCloudinary = async (localFilePath) => {
 
     return response;
   } catch (error) {
-    fs.unlinkSync(localFilePath) //remove the locally saved data then only move forward for anything
+    fs.unlinkSync(localFilePath); //remove the locally saved data then only move forward for anything
   }
 };
 
